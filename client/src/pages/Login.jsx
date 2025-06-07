@@ -19,7 +19,7 @@ function Login() {
             return
         }
         try {
-          const res =  await axios.post("http://localhost:8000/user/login",
+          const res =  await axios.post("https://pattari.onrender.com/user/login",
                 {
                     Email : email,
                     Password : password

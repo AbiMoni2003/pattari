@@ -26,7 +26,7 @@ const handleRegister=async()=>{
         return;
     }
     try {
-      const res =  await axios.post("http://localhost:8000/user/register",
+      const res =  await axios.post("https://pattari.onrender.com/user/register",
         {
             userName:userName,
             Phone:phone,

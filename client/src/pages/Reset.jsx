@@ -26,7 +26,7 @@ function Reset() {
         }
 
         try {
-            await axios.put("http://localhost:8000/user/reset",
+            await axios.put("https://pattari.onrender.com/user/reset",
                 {
                 Email:email,
                 Password:password
