@@ -172,4 +172,106 @@ a{
 }
 
 
+ .slide {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #ffffff;
+      transform: translateX(100%);
+      transition: transform 2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1000;
+     align-items: center;
+     text-align: center;
+     padding-right: 140px;
+    
+    }
+  
+    .slide h1 {
+      font-size: 24px;
+      color: #0333f1;
+      margin-bottom: 20px;
+    }
+  
+    .slide li {
+      list-style-type: none;
+      font-size: 18px;
+      margin: 10px 0px;
+      text-transform: uppercase;
+      color: #333;
+      text-align: center;
+      font-weight: 700;
+    }
+    .slide li>a{
+       text-decoration: none;
+       color: #333;
+    }
+  
+    label input {
+      display: none;
+    }
+  
+    .toggle {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 2000;
+      width: 40px;
+      height: 40px;
+      background-color: #0333f1;
+      border-radius: 50%;
+      display: flex;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      margin-top: -4px;
+    }
+  
+    .toggle .common {
+        position: absolute;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .toggle .top-line{
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .toggle .mid-line{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .toggle .bottom-line{
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+  
+    label input:checked ~ .toggle .top-line {
+      transform: translateY(8px) rotate(45deg);
+      left: 8px;  
+    }
+  
+    label input:checked ~ .toggle .mid-line {
+      opacity: 0;
+    }
+  
+    label input:checked ~ .toggle .bottom-line {
+      transform: translateY(-8px) rotate(-45deg);
+      left: 8px;
+      
+    }
+  
+    label input:checked ~ .slide {
+      transform: translateX(20%);
+    }
+  
+
 
