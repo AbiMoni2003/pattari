@@ -13,6 +13,10 @@ const [message,setMessage] = useState("")
 const navigate = useNavigate();
 
 const handleRegister=async()=>{
+
+    const uppercaseRegex = /[A-Z]/;
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
      if(!userName || !email || !password){
             setMessage("All the fiels are Required")
@@ -20,11 +24,38 @@ const handleRegister=async()=>{
             return;
         }
 
+         if (!emailRegex.test(email)) {
+        setMessage("Please enter a valid email address.");
+        setTimeout(() => setMessage(""), 5000);
+        return;
+    }
+
+    if(password.valueOf("0000000000" || "1234567890" || "9876543210")){
+        setMessage("Enter a valid phone number");
+        setTimeout(()=>setMessage(""),5000);
+        return;
+    }
+
     if(password.length<8){
         setMessage("Password should be 8 character..")
         setTimeout(()=>setMessage(""),5000)
         return;
     }
+
+    if (!uppercaseRegex.test(password)) {
+    setMessage("Password must contain at least one uppercase letter.");
+    setTimeout(() => setMessage(""), 5000);
+    return;
+    }
+
+    if (!specialCharRegex.test(password)) {
+        setMessage("Password must contain at least one special character (e.g., !@#$%^&*).");
+        setTimeout(() => setMessage(""), 5000);
+        return;
+    }
+
+    
+
     try {
       const res =  await axios.post("https://pattari.onrender.com/user/register",
         {
