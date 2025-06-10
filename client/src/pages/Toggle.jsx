@@ -12,7 +12,7 @@ function Toggle() {
               <div className='slide'>
               <h1>Menu</h1>
               <ul>
-              <li><Link to="/register">Register</Link></li>
+              <li><Link to="/">LogOut</Link></li>
               <li><Link to="/login">login</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
