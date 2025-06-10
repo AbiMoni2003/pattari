@@ -19,7 +19,11 @@ export const loginUser = async(req,res) =>{
         if(user.Password !== Password){
             return res.status(401).json({message:"Invalid Password"})
         }
-        res.status(200).json({message:"Login Successfull"})
+        res.status(200).json({message:"Login Successfull",
+            userName : user.userName,
+            userId : user._id,
+            Email : user.Email
+        })
 
     } catch (error) {
         res.status(500).json({message:error.message})

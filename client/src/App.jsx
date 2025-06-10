@@ -5,6 +5,7 @@ import Reset from "./pages/Reset"
 import Home from "./pages/Home"
 import Loaction from "./pages/Loaction"
 import Toggle from "./pages/Toggle"
+import Footer from "./pages/Footer"
 function App() {
  
 
