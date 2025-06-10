@@ -18,7 +18,7 @@ function Home() {
     <div className='home-div'>
        {showPopup && (
         <div className="popup">
-          👋 Hi, {userName}!
+          👋 Hi, {userName} 😊!
         </div>
       )}
         <h2>Our lady of Snow Church</h2>

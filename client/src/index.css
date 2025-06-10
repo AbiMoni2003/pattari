@@ -285,8 +285,8 @@ a{
   
 .popup {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 70px;
+  right: 25px;
   background-color: #007bff;
   color: white;
   padding: 10px 16px;
@@ -299,7 +299,7 @@ a{
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-50px);
   }
   to {
     opacity: 1;
