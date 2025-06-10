@@ -26,6 +26,7 @@ function Login() {
                 }
             )
             console.log(res);
+            const userName = res.data.userName;
             console.log("login successful");
             navigate("/home",{state:{userName : userName}})
             
