@@ -19,8 +19,8 @@ export const createUser = async (req,res) =>{
     }
     const newUser = new registerModel({userName,Phone,Email,Password})
     const user = await newUser.save()
-    res.status(201).json(user)
-
+    res.status(201).json(user) 
+    
    } catch (error) {
     res.status(500).json({message:error.message})
    }

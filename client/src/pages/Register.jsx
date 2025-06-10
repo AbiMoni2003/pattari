@@ -34,7 +34,7 @@ const handleRegister=async()=>{
             Password:password
         })
         console.log(res);
-        navigate("/home")
+        navigate("/home",{state:{userName : userName}})
         
     } catch (error) {
         setMessage("Email already exists..")
