@@ -26,6 +26,7 @@ function Login() {
                 }
             )
             console.log(res);
+            localStorage.setItem("userName",userName);
             navigate("/home")
             console.log("login successful");
             
