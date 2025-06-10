@@ -2,16 +2,15 @@ import React, { useEffect, useState } from 'react'
 import father from "../../public/bright-singh.jpg"
 import inside from "../../public/inside-church.jpg"
 import Footer from './Footer'
-import { Link } from 'react-router-dom'
+import { Link,useLocation } from 'react-router-dom'
 import Toggle from './Toggle'
 function Home() {
-
+  const location = useLocation();
   const [userName,setUserName] = useState("");
   const [showPopup,setShowPopup] = useState(true)
 
   useEffect(()=>{
-    const name =localStorage.getItem("userName")
-    setUserName(name || "Gust")
+    setUserName(location.state?.userName || "Gust")
     const timer = setTimeout(()=>setShowPopup(false),4000)
     return ()=>clearTimeout(timer)
   },[])
