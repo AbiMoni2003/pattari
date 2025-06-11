@@ -27,7 +27,7 @@ function Login() {
                     Password : password,
                 }
             )
-           if(res.message == "Login Successfull"){
+           if(res.data.message === "Login Successfull"){
             const userName = res.data.userName;
             console.log("login successful");
             navigate("/home",{state:{userName : userName}})
