@@ -64,7 +64,8 @@ function Reset() {
                 }
             )
             console.log("reseted");
-            navigate("/login")
+            if(res.data.message ==="updated.."){
+            navigate("/login")}
         } catch (error) {
             setMessage("Invalid Name and Email..")
             setTimeout(()=>setMessage(""),5000)
