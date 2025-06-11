@@ -27,11 +27,11 @@ function Login() {
                     Password : password,
                 }
             )
-            console.log(res);
+           if(res.message == "Login Successfull"){
             const userName = res.data.userName;
             console.log("login successful");
             navigate("/home",{state:{userName : userName}})
-            
+           }
         } catch (error) {
             setMessage("Invalid Email and Password..")
             setTimeout(() => setMessage(""), 5000);
