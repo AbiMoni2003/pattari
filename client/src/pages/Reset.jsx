@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-
+import CryptoJS from 'crypto-js';
 
 
 function Reset() {
@@ -50,12 +50,17 @@ function Reset() {
         return;
     }
 
+        const secretKey = import.meta.env.VITE_SECRET_KEY;
+
+        const encryptedPassword = CryptoJS.AES.encrypt(password,secretKey).toString()
+        
+
         try {
             await axios.put("https://pattari.onrender.com/user/reset",
                 {
                 userName : userName,
                 Email:email,
-                Password:password
+                Password:encryptedPassword
                 }
             )
             console.log("reseted");
