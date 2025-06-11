@@ -9,14 +9,16 @@ import dotenv from "dotenv"
 
 function Register() {
 
-    dotenv.config();
-
 const [userName,setUserName] = useState("");
 const [phone,setPhone] = useState("");
 const [email,setEmail] = useState("");
 const [password,setPassword] = useState("");
 const [message,setMessage] = useState("")
 const navigate = useNavigate();
+
+
+
+
 
 const handleRegister=async()=>{
 
@@ -68,9 +70,10 @@ const handleRegister=async()=>{
         setTimeout(() => setMessage(""), 5000);
         return;
     }
+    const secretKey = import.meta.env.VITE_SECRET_KEY;
 
-    const encryptedPassword = CryptoJs.AES.encrypt(password,process.env.SECRET_KEY).toString;
-
+    const encryptedPassword = CryptoJs.AES.encrypt(password, secretKey).toString();
+    
     try {
       const res =  await axios.post("https://pattari.onrender.com/user/register",
         {
