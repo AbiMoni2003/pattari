@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import CryptoJs from "crypto-js"
 
 
 
@@ -18,11 +19,14 @@ function Login() {
             setTimeout(()=>setMessage(""),5000)
             return
         }
+        const secretKey = import.meta.env.VITE_SECRET_KEY;
+        
+        const encryptedPassword = CryptoJs.AES.encrypt(password, secretKey).toString();
         try {
           const res =  await axios.post("https://pattari.onrender.com/user/login",
                 {
                     Email : email,
-                    Password : password
+                    Password : encryptedPassword,
                 }
             )
             console.log(res);
