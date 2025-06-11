@@ -56,7 +56,7 @@ function Reset() {
         
         
         try {
-            await axios.put("https://pattari.onrender.com/user/reset",
+          const res =  await axios.put("https://pattari.onrender.com/user/reset",
                 {
                
                 Email:email,
