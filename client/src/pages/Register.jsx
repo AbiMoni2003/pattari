@@ -62,7 +62,7 @@ const handleRegister=async()=>{
     if (!uppercaseRegex.test(password)) {
     setMessage("Password must contain at least one uppercase letter.");
     setTimeout(() => setMessage(""), 5000);
-    return;
+    return; 
     }
 
     if (!specialCharRegex.test(password)) {
