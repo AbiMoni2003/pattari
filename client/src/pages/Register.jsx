@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from "axios"
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
+import  {phoneValid}  from '../validations/validation';
 
 function Register() {
 
@@ -18,11 +19,24 @@ const handleRegister=async()=>{
     const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-     if(!userName || !email || !password){
+    
+     if(!userName || !email || !password || !phone){
             setMessage("All the fiels are Required")
             setTimeout(()=>setMessage(""),5000)
             return;
         }
+
+        if(phone.length<10){
+            setMessage("Enter a valid phone number");
+            setTimeout(()=>setMessage(""),5000);
+            return;
+        }
+
+         if(phoneValid.includes(phone)){
+        setMessage("Enter a valid phone number");
+        setTimeout(()=>setMessage(""),5000);
+        return;
+    }
 
          if (!emailRegex.test(email)) {
         setMessage("Please enter a valid email address.");
@@ -30,11 +44,7 @@ const handleRegister=async()=>{
         return;
     }
 
-    if(password.valueOf("0000000000" || "1234567890" || "9876543210")){
-        setMessage("Enter a valid phone number");
-        setTimeout(()=>setMessage(""),5000);
-        return;
-    }
+   
 
     if(password.length<8){
         setMessage("Password should be 8 character..")

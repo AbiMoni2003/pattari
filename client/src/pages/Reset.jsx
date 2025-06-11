@@ -14,20 +14,46 @@ function Reset() {
     const navigate = useNavigate();
 
     const handleReset =async()=>{
+
+     const uppercaseRegex = /[A-Z]/;
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
         if(!userName || !email || !password){
             setMessage("All Fields are required..")
             setTimeout(()=>setMessage(""),5000)
             return 
         }
+
+          if (!emailRegex.test(email)) {
+        setMessage("Please enter a valid email address.");
+        setTimeout(() => setMessage(""), 5000);
+        return;
+    }
+
+
         if(password.length<8){
             setMessage("Password should be 8 character..")
             setTimeout(()=>setMessage(""),5000)
             return;
         }
 
+          if (!uppercaseRegex.test(password)) {
+    setMessage("Password must contain at least one uppercase letter.");
+    setTimeout(() => setMessage(""), 5000);
+    return;
+    }
+
+    if (!specialCharRegex.test(password)) {
+        setMessage("Password must contain at least one special character (e.g., !@#$%^&*).");
+        setTimeout(() => setMessage(""), 5000);
+        return;
+    }
+
         try {
             await axios.put("https://pattari.onrender.com/user/reset",
                 {
+                userName : userName,
                 Email:email,
                 Password:password
                 }
