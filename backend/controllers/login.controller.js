@@ -15,9 +15,9 @@ export const loginUser = async(req,res) =>{
             return res.status(404).json({message:"Register Required.."})
             
         }
-
+        
         const secretKey = "Abishek2003";
-        const decryptedPassword = CryptoJS.AES.decrypt(user.Password,secretKey).toString(CryptoJS.enc.Utf8)
+        const decryptedPassword = CryptoJS.AES.decrypt(user.Password,secretKey).toString()
 
         if(decryptedPassword !== Password){
             return res.status(401).json({message:"Invalid Password"})
