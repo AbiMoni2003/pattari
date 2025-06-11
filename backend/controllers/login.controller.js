@@ -17,9 +17,10 @@ export const loginUser = async(req,res) =>{
         }
 
         const secretKey = "Abishek2003";
-        const decryptedPassword = CryptoJS.AES.decrypt(user.Password,secretKey).toString()
+        
+        const decryptedPassword = CryptoJS.AES.decrypt(user.Password,secretKey).toString(CryptoJS.enc.Utf8)
 
-        if(Password !== decryptedPassword){
+        if(decryptedPassword !== Password){
             return res.status(401).json({message:"Invalid Password"})
         }
         res.status(200).json({message:"Login Successfull",
