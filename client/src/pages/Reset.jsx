@@ -54,17 +54,17 @@ function Reset() {
 
         const encryptedPassword = CryptoJS.AES.encrypt(password,secretKey).toString()
         
-
+        
         try {
             await axios.put("https://pattari.onrender.com/user/reset",
                 {
-                userName : userName,
+               
                 Email:email,
                 Password:encryptedPassword
                 }
             )
+            if(res.data.message === "updated.."){
             console.log("reseted");
-            if(res.data.message ==="updated.."){
             navigate("/login")}
         } catch (error) {
             setMessage("Invalid Name and Email..")
