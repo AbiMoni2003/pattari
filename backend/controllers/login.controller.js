@@ -1,5 +1,8 @@
-
+import CryptoJS from "crypto-js"
 import registerModel from "../models/register.user.js"
+import dotenv from "dotenv"
+
+dotenv.config();
 
 export const loginUser = async(req,res) =>{
     const {Email,Password} = req.body
@@ -16,7 +19,9 @@ export const loginUser = async(req,res) =>{
             
         }
 
-        if(user.Password !== Password){
+        const decryptedPassword = CryptoJS.AES.decrypt(Password,process.env.SECRET_KEY).toString();
+
+        if(decryptedPassword !== user.Password){
             return res.status(401).json({message:"Invalid Password"})
         }
         res.status(200).json({message:"Login Successfull",
