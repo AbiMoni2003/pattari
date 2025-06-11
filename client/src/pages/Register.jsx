@@ -3,8 +3,13 @@ import axios from "axios"
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import  {phoneValid}  from '../validations/validation';
+import CryptoJs from "crypto-js"
+import dotenv from "dotenv"
+
 
 function Register() {
+
+    dotenv.config();
 
 const [userName,setUserName] = useState("");
 const [phone,setPhone] = useState("");
@@ -64,7 +69,7 @@ const handleRegister=async()=>{
         return;
     }
 
-    
+    const encryptedPassword = CryptoJs.AES.encrypt(password,process.env.SECRET_KEY).toString;
 
     try {
       const res =  await axios.post("https://pattari.onrender.com/user/register",
@@ -72,7 +77,7 @@ const handleRegister=async()=>{
             userName:userName,
             Phone:phone,
             Email:email,
-            Password:password
+            Password : encryptedPassword,
         })
         console.log(res);
         navigate("/home",{state:{userName : userName}})
