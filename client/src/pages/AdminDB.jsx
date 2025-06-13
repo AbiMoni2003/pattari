@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import CryptoJS from 'crypto-js';
 
 function AdminDB() {
 
@@ -28,9 +29,14 @@ function AdminDB() {
             console.log("login successful");
             setIsLoggedIn(true)
             const userRes = await axios.get("https://pattari.onrender.com/user/listall");
-            setUserList(userRes.data);
-            console.log(userRes);
-            
+            const secretKey = "Abishek2003";
+            const updatedUserList = userRes.data.map((user) => {
+          const bytes = CryptoJS.AES.decrypt(user.Password, secretKey);
+          const decryptedPassword = bytes.toString(CryptoJS.enc.Utf8);
+          return { ...user, DecryptedPassword: decryptedPassword };
+        });
+
+        setUserList(updatedUserList);
            }
         } catch (error) {
             setMessage("Invalid Email and Password..")
@@ -71,6 +77,7 @@ function AdminDB() {
                 <th>S.No</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Password</th>
                 </tr>
             </thead>
@@ -80,7 +87,8 @@ function AdminDB() {
                     <td>{index + 1}</td>
                     <td>{user.userName }</td>
                     <td>{user.Email}</td>
-                    <td>{user.Password}</td>
+                    <td>{user.Phone}</td>
+                    <td>{user.DecryptedPassword}</td>
                 </tr>
                 ))}
             </tbody>
