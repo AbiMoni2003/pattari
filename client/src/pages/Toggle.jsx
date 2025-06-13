@@ -16,7 +16,7 @@ function Toggle() {
               <li><Link to="https://www.youtube.com/@olspattarivilai" target="_blank">YouTube</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
-              <button className="admin-db-btn btn">Admin DB</button>
+             <button className="admin-db-btn btn"><Link to="/admin">Admin DB</Link> </button>
               </div>
             </label>
     </div>
