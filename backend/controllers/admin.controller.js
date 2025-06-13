@@ -2,10 +2,10 @@ import adminModel from "../models/admin.model.js"
 
 
 export const adminLogin =async(req,res)=>{
-    const {Name,Email,Password} = req.body
+    const {Email,Password} = req.body
     try {
 
-        if(!Name || !Email || !Password){
+        if( !Email || !Password){
             return res.status(400).json({message:"Fill the Fields"})
         }
 
