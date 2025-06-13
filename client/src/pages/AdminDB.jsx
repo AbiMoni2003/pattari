@@ -26,9 +26,11 @@ function AdminDB() {
             )
            if(res.data.message === "Login Successfull"){
             console.log("login successful");
-            isLoggedIn(true)
+            setIsLoggedIn(true)
             const userRes = await axios.get("https://pattari.onrender.com/user/listall");
             setUserList(userRes.data);
+            console.log(userRes);
+            
            }
         } catch (error) {
             setMessage("Invalid Email and Password..")
