@@ -6,8 +6,8 @@ function AdminDB() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const [message,setMessage] = useState("");
-    const [listAll,setListAll] =useState(1);
-
+    const [userList, setUserList] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
      const handleAdminLogin = async()=>{
         if(!email || !password){
@@ -26,6 +26,9 @@ function AdminDB() {
             )
            if(res.data.message === "Login Successfull"){
             console.log("login successful");
+            isLoggedIn(true)
+            const userRes = await axios.get("https://pattari.onrender.com/user/listall");
+            setUserList(userRes.data);
            }
         } catch (error) {
             setMessage("Invalid Email and Password..")
@@ -38,7 +41,8 @@ function AdminDB() {
   return (
     <div>
         <h1 style={{textAlign:"center",fontWeight:800}}>Only For Admin Use</h1>
-          <div className="admin-container">
+
+          { !isLoggedIn && (<div className="admin-container">
             <div className="login-div">
                 <h2>Login</h2>
                 <div className="input-group">
@@ -54,8 +58,33 @@ function AdminDB() {
                 <button className='btn green' onClick={handleAdminLogin}>Login</button>
                 </div>               
             </div>
-        </div>
+        </div>)}
+       {isLoggedIn && (
+        <div className="list-all-users">
+            <h2 style={{ textAlign: "center" }}>All Registered Users</h2>
 
+            <table className="table">
+            <thead>
+                <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                {userList.map((user, index) => (
+                <tr key={user._id || index}>
+                    <td>{index + 1}</td>
+                    <td>{user.userName }</td>
+                    <td>{user.Email}</td>
+                    <td>{user.Password}</td>
+                </tr>
+                ))}
+            </tbody>
+            </table>
+        </div>
+        )}
     </div>
   )
 }

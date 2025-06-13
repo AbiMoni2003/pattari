@@ -321,5 +321,23 @@ a{
   justify-content: center;
 }
 
+.table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  
+}
+
+.table th{
+  background-color: rgb(236, 228, 216);
+  font-weight: 700;
+}
+
+.table th,
+.table td{
+    border: 1px solid gray;
+    padding: 4px;
+}
+
 
 
