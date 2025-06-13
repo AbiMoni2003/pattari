@@ -1,6 +1,7 @@
 import express from "express"
 import connectDB from "./db/user.db.js";
 import registerRouter from "./routes/register.routes.js"
+import adminRouter from "./routes/admin.routes.js";
 import cors from "cors";
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(cors({
     methods:["GET","POST","PUT","DELETE"]
 }))
 app.use("/user",registerRouter)
+
+app.use("/admin",adminRouter)
 
 app.listen(PORT,()=>{
     console.log(`server is listening in http://localhost:${PORT}`);

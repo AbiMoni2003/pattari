@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import Loaction from "./pages/Loaction"
 import Toggle from "./pages/Toggle"
 import Footer from "./pages/Footer"
+import AdminDB from "./pages/AdminDB"
 function App() {
  
 
@@ -13,7 +14,7 @@ function App() {
     <>
      <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login/>}/>
+        <Route path="/" element={<AdminDB/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/reset" element={<Reset/>}/>

@@ -273,6 +273,15 @@ a{
       transform: translateX(20%);
     }
 
+    .admin-db-btn{
+      background-color: rgb(251, 251, 46);
+      font-weight: 700;
+      font-size: 15px;
+      margin-right: 10%;
+      max-width: 300px !important;
+      
+    }
+
     .page-container {
   display: flex;
   flex-direction: column;

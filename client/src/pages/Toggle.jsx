@@ -13,9 +13,10 @@ function Toggle() {
               <h1>Menu</h1>
               <ul>
               <li><Link to="/">LogOut</Link></li>
-              <li><Link to="/login">login</Link></li>
+              <li><Link to="https://www.youtube.com/@olspattarivilai" target="_blank">YouTube</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
+              <button className="admin-db-btn btn">Admin DB</button>
               </div>
             </label>
     </div>
