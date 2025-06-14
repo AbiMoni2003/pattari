@@ -7,6 +7,7 @@ import Loaction from "./pages/Loaction"
 import Toggle from "./pages/Toggle"
 import Footer from "./pages/Footer"
 import AdminDB from "./pages/AdminDB"
+import { Navigate } from "react-router-dom"
 function App() {
  
 
@@ -19,10 +20,10 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/reset" element={<Reset/>}/>
         <Route path="/home" element={<Home/>}/>
-        <Route path="/*" element={<Login/>}/>
         <Route path="/toggle" element={<Toggle/>}/>
         <Route path="/location" element={<Loaction/>}/>
         <Route path="/admin" element={<AdminDB/>}/>
+        <Route path="/*" element={<Navigate to="/Login" />}/>
       </Routes>
      </BrowserRouter>
     </>
