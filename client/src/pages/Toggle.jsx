@@ -1,5 +1,14 @@
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 function Toggle() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+  localStorage.clear();
+  sessionStorage.clear();
+
+  navigate("/", { replace: true });
+
+  window.location.reload();
+};
   return (
     <div>
         <label>
@@ -12,7 +21,7 @@ function Toggle() {
               <div className='slide'>
               <h1>Menu</h1>
               <ul>
-              <li><Link to="/">LogOut</Link></li>
+              <li><Link onClick={handleLogout}>LogOut</Link></li>
               <li><Link to="https://www.youtube.com/@olspattarivilai" target="_blank">YouTube</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
