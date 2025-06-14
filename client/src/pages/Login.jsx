@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -37,6 +37,14 @@ function Login() {
             setTimeout(() => setMessage(""), 5000);
         }
     }
+
+     useEffect(() => {
+    window.history.pushState(null, "", window.location.href);
+    window.onpopstate = () => {
+        window.history.pushState(null, "", window.location.href);
+    };
+    }, []);
+
 
   return (
     <div>

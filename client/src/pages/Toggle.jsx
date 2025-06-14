@@ -1,13 +1,20 @@
 import { Link,useNavigate } from "react-router-dom"
 function Toggle() {
+
   const navigate = useNavigate();
+
   const handleLogout = () => {
   localStorage.clear();
   sessionStorage.clear();
 
   navigate("/", { replace: true });
 
-  window.location.reload();
+   setTimeout(() => {
+      window.history.pushState(null, "", window.location.href);
+      window.onpopstate = () => {
+        window.history.pushState(null, "", window.location.href);
+      };
+    }, 100);
 };
   return (
     <div>
@@ -21,7 +28,7 @@ function Toggle() {
               <div className='slide'>
               <h1>Menu</h1>
               <ul>
-              <li><Link onClick={handleLogout}>LogOut</Link></li>
+              <li onClick={handleLogout}>LogOut</li>
               <li><Link to="https://www.youtube.com/@olspattarivilai" target="_blank">YouTube</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
