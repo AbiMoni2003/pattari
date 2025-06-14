@@ -30,6 +30,7 @@ function Login() {
            if(res.data.message === "Login Successfull"){
             const userName = res.data.userName;
             console.log("login successful");
+            localStorage.setItem("isLoggedIn", "true");
             navigate("/home",{state:{userName : userName}})
            }
         } catch (error) {
