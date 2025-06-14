@@ -31,7 +31,6 @@ function Login() {
             const userName = res.data.userName;
             console.log("login successful");
             localStorage.setItem("isLoggedIn", "true");
-            console.log("Saved:", localStorage.getItem("isLoggedIn"));
             navigate("/home",{state:{userName : userName}})
            }
         } catch (error) {

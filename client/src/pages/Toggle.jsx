@@ -28,7 +28,7 @@ function Toggle() {
               <div className='slide'>
               <h1>Menu</h1>
               <ul>
-              <li onClick={handleLogout}>LogOut</li>
+              <li onClick={handleLogout} style={{cursor:"pointer"}}>LogOut</li>
               <li><Link to="https://www.youtube.com/@olspattarivilai" target="_blank">YouTube</Link></li>
               <li><Link to="/location">Location</Link></li>  
               </ul>
