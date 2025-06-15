@@ -114,14 +114,14 @@ a{
 }
 
 .footer {
-  display: flex;
-  padding: 0;
-  background-color: #1a1a1a;
+  
+  background-color: rgb(234, 231, 231);
   padding: 20px 0;
-  color: white;
-  text-align: center;
+  color: rgb(19, 3, 3);
   width: 100%;
-  justify-content: center;
+}
+.church-div{
+  padding: 0px 10px;
 }
 
 .footer-div {
@@ -132,25 +132,24 @@ a{
 }
 
 .footer-div a {
-  color: white;
   font-size: 24px;
   text-decoration: none;
   transition: transform 0.3s, color 0.3s;
   cursor: pointer;
 }
 
-.footer-div a:hover {
-  color: #e1306c; 
-  transform: scale(1.2);
-}
 
-.inside-chruch,.father-image{
-   width: 100vw;       
+.inside-chruch{
+  width: 100vw;       
   background-position: center;   
   top: 0;
   left: 0;
 }
 
+.home-heading{
+  color: #007bff;
+  text-align: justify;
+}
 
 .home-div h2{
   text-align: center;
@@ -163,6 +162,46 @@ a{
   background-clip: text;
   color: transparent;
   animation: roll 6s linear infinite;
+}
+
+.father-bio{
+  background-color: antiquewhite;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.father-bio p{
+  font-size: 18px;
+  font-weight: 500;
+  color: #000517;
+}
+
+.home-history p{
+  color: #100101;
+  font-weight: 550;
+  padding: 5px;
+}
+
+.father-image{
+  max-height: 300px;
+  max-width: 300px;
+  background-position: center;
+  border-radius: 10px;
+}
+.home-utube-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-utube-div img{
+  max-height: 100px;
+}
+
+.home-utube-div p{
+  font-weight: 500;
+  padding: 10px;
 }
 
 @keyframes roll{
@@ -340,4 +379,57 @@ a{
 }
 
 
+.histroy-whole-div {
+  padding: 10px;
+}
 
+.histroy-whole-div h3{
+    color: #007bff;
+    font-size: 18px;
+}
+
+.histroy-whole-div p{
+  text-align: justify;
+  color: #222121;
+}
+
+.history-image-div{
+  background-image: url("../public/pattari.jpg");
+  min-height: 400px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+
+}
+
+.mass-image-div{
+  background-image: url("../public/inside-church.jpg");
+  min-height: 300px;
+   background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 1, 1);
+}
+
+.mass-whole-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: aliceblue;
+}
+
+.mass-whole-div img{
+  max-height: 300px;
+  border-radius: 10px;
+}
+
+.mass-whole-div p{
+  font-weight: 500;
+}

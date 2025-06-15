@@ -9,6 +9,8 @@ import Footer from "./pages/Footer"
 import AdminDB from "./pages/AdminDB"
 import { Navigate } from "react-router-dom"
 import ProtectedRoute from "./pages/ProtectedRoute"
+import History from "./pages/History"
+import Mass from "./pages/Mass"
 function App() {
  
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="/toggle" element={<Toggle/>}/>
         <Route path="/location" element={<ProtectedRoute><Loaction/></ProtectedRoute>}/>
         <Route path="/admin" element={<ProtectedRoute><AdminDB/></ProtectedRoute>}/>
+        <Route path="/history" element={<ProtectedRoute><History/></ProtectedRoute>}/>
+        <Route path="/mass" element={<ProtectedRoute><Mass/></ProtectedRoute>}/>
         <Route path="/*" element={<Navigate to="/Login" />}/>
       </Routes>
      </BrowserRouter>

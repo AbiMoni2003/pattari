@@ -4,6 +4,7 @@ import inside from "../../public/inside-church.jpg"
 import Footer from './Footer'
 import { Link,useLocation } from 'react-router-dom'
 import Toggle from './Toggle'
+import youtube from "../../public/you-tube.svg"
 function Home() {
   const location = useLocation();
   const [userName,setUserName] = useState("");
@@ -22,12 +23,31 @@ function Home() {
         </div>
       )}
         <h2>Our lady of Snow Church</h2>
+
         <div>
         <img src={inside} alt="image" className='inside-chruch'/>
         </div>
-       <div >
-        <img src={father} alt="image" className="father-image"/>
-       </div>
+        <div className="home-history">
+          <h3 className='home-heading'>தூய பனிமய அன்னை ஆலயம் - பட்டரி விளை | CHURCH OF OUR LADY OF SNOWS - PATTARIVILAI</h3>
+          <p>இறை மக்கள் அனைவரையும் பட்டரிவிளை, தூய பனிமய அன்னை ஆலய இணையதளத்துக்கு அன்புடன் வரவேற்கிறோம். </p>
+          <p>பட்டர்விளை மண்ணில் ஒரு குடும்பத்தால் தோன்றிய கிறிஸ்தவம் 350 க்கும் மேற்பட்ட குடும்பங்களுடன் ஆலமரம் போல் இன்று செழித்தோங்கி திகழ்கிறது. இவ்வாறு பட்டர்விளை பங்கானது நாளொரு மேனியும் பொழுதொரு வண்ணமாக வளர்ந்து வருகின்றது. <Link to="/history">Read More</Link></p>
+        </div>
+        <div className="father-bio">
+          <img src={father} alt="image" className='father-image'/>
+          <p>Fr. Bright Singh <br/>
+              Date of Ordination:	01.05.2022 <br/>
+              Parish Priest ( June 2022 onwards )</p>
+          <p>
+            Pattarivilai, Tamil Nadu, India<br/>
+            Diocese of Kuzhithurai
+          </p>
+        </div>
+        <div className="home-utube-div">
+         <Link to="https://www.youtube.com/@olspattarivilai" target='_blank'><img src={youtube} alt="image" /></Link> 
+          <p>Watch Sunday & Special Masses on our youtube channel  @olspattarivilai</p>
+          <p>Sunday Mass at 7:00am Live on youtube</p>
+        </div>
+       
 
       <Toggle/>
        <Footer/>
