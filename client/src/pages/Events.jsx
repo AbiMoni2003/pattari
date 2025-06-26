@@ -9,7 +9,10 @@ function Events() {
         <h1 className="events-heading">Events</h1>
         <div className="events-div">
             <h1 style={{fontSize:"18px"}}>படைப்பாற்றல்</h1>
-          <video src='../../public/gallary/padaipattal.mp4' autoPlay loop muted controls className='padaipattal-video' />  
+        <iframe width="400px" height="400px"
+        src='../../public/gallary/padaipattal.mp4'
+        className='padaipattal-video'
+      ></iframe>
         </div>
         <Footer/>
     </div>
