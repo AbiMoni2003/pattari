@@ -31,6 +31,7 @@ function Toggle() {
                 <li><Link to="/home">Home</Link></li>
                 <li><Link to="/history">History</Link></li>
                 <li><Link to="/mass">Mass</Link></li>
+                <li><Link to="/events">Events</Link></li>
               <li><Link to="/location">Location</Link></li>  
               <li onClick={handleLogout} style={{cursor:"pointer"}}>LogOut</li>
               </ul>

@@ -433,3 +433,16 @@ a{
 .mass-whole-div p{
   font-weight: 500;
 }
+
+.events-heading{
+    margin: 0;
+    text-align: center;
+    font-weight: 800;
+    background-color: #007bff;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.padaipattal-video{
+  max-width: 400px;
+}
